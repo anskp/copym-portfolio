@@ -1,6 +1,13 @@
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Github, Twitter, Youtube, Linkedin, Mail } from "lucide-react";
 
+declare global {
+  interface Window {
+    VANTA?: any;
+    THREE?: any;
+  }
+}
+
 export function FooterSection() {
   return (
     <footer className="bg-white/10 backdrop-blur-md border-t border-border/20">

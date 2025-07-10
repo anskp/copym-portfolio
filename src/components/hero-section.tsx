@@ -3,6 +3,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { Laptop, ShoppingBag, Shirt, Package, Store, Sun, Moon } from "lucide-react";
+import { AnimatedDock } from "./animated-dock";
+import React from "react";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -15,16 +18,17 @@ export function HeroSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animate cards on load
-      gsap.fromTo(".hero-card", 
+      gsap.fromTo(
+        ".hero-card",
         { opacity: 0, y: 50, scale: 0.9 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          scale: 1, 
-          duration: 0.8, 
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
           stagger: 0.1,
           ease: "power2.out",
-          delay: 0.3
+          delay: 0.3,
         }
       );
     }, sectionRef);
@@ -32,128 +36,132 @@ export function HeroSection() {
     return () => ctx.revert();
   }, []);
 
+  // Floating animation for logo
+  const floatingLogoStyle = {
+    animation: "floatLogo 3s ease-in-out infinite",
+  };
+
+  // Add keyframes for floating animation
+  const style = document.createElement("style");
+  style.innerHTML = `
+  @keyframes floatLogo {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-24px); }
+    100% { transform: translateY(0); }
+  }`;
+  if (
+    typeof window !== "undefined" &&
+    !document.getElementById("float-logo-keyframes")
+  ) {
+    style.id = "float-logo-keyframes";
+    document.head.appendChild(style);
+  }
+
+  // Theme toggle component
+  const ThemeToggle = () => {
+    const [dark, setDark] = React.useState(() =>
+      document.documentElement.classList.contains("dark")
+    );
+
+    const handleToggle = (e: React.MouseEvent) => {
+      e.preventDefault();
+      const html = document.documentElement;
+      if (html.classList.contains("dark")) {
+        html.classList.remove("dark");
+        setDark(false);
+      } else {
+        html.classList.add("dark");
+        setDark(true);
+      }
+    };
+
+    const Icon = dark ? Sun : Moon;
+    return <Icon className="h-4 w-4" onClick={handleToggle} />;
+  };
+
   return (
     <section
       ref={sectionRef}
-      className="min-h-screen bg-background p-6"
+      className="h-screen overflow-hidden bg-background p-4 flex flex-col"
     >
       {/* Header */}
-      <header className="flex items-center justify-between mb-8">
-        <div className="flex items-center space-x-4">
-          <div className="flex space-x-2">
-            <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-            <div className="w-3 h-3 bg-white rounded-full"></div>
-            <div className="w-3 h-3 bg-pink-400 rounded-full"></div>
-            <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-          </div>
+      <header className="flex items-center justify-between mb-6 flex-shrink-0 z-10 relative">
+        <div className="flex items-center">
+          <img src="/images/logo.png" alt="COPYm" className="h-12 w-12 object-contain" />
         </div>
-        
-        <h1 className="text-2xl font-bold text-foreground">AI-Powered</h1>
-        
+
+        <h1 className="text-2xl font-bold text-foreground">COPYm</h1>
+
         <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-          <span>SYNTO PREDICTS WHAT YOU NEED — BEFORE YOU KNOW YOU NEED IT.</span>
-          <div className="flex space-x-2">
-            <div className="w-6 h-6 border border-border rounded"></div>
-            <div className="w-6 h-6 border border-border rounded"></div>
-            <div className="w-6 h-6 border border-border rounded"></div>
-            <div className="w-6 h-6 border border-border rounded"></div>
-            <div className="w-6 h-6 border border-border rounded"></div>
-          </div>
+          <span>Tokenize Physical Assets in Minutes — Secure, Compliant, Global.</span>
+          <AnimatedDock
+            items={[
+              { link: "#", Icon: <Laptop className="h-4 w-4" /> },
+              { link: "#", Icon: <ShoppingBag className="h-4 w-4" /> },
+              { link: "#", Icon: <Shirt className="h-4 w-4" /> },
+              { link: "#", Icon: <Package className="h-4 w-4" /> },
+              { link: "#", Icon: <Store className="h-4 w-4" /> },
+              { link: "#", Icon: <ThemeToggle /> },
+            ]}
+          />
         </div>
       </header>
 
       {/* Bento Grid Layout */}
-      <div className="grid grid-cols-12 grid-rows-6 gap-4 h-[calc(100vh-120px)]">
-        {/* Large card - top left */}
-        <div className="hero-card col-span-4 row-span-3 bg-gradient-to-br from-pink-500 to-red-500 rounded-3xl p-6 flex flex-col justify-between text-white">
-          <div className="flex items-center space-x-4">
-            <div className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
-              <div className="w-1 h-1 bg-white rounded-full"></div>
+      <div className="flex-1 grid grid-cols-12 gap-4 min-h-0 overflow-hidden">
+        {/* LEFT COLUMN - 3 cards stacked */}
+        <div className="col-span-12 md:col-span-4 flex flex-col gap-4 h-full min-h-0">
+          {/* Each card gets 1/3 of the column height */}
+          <div className="hero-card flex-1 min-h-0 bg-white border border-border rounded-3xl overflow-hidden">
+            <img
+              src="/images/token-marketplace.png"
+              alt="Token Marketplace"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="hero-card flex-1 min-h-0 bg-white border border-border rounded-3xl overflow-hidden">
+            <img
+              src="/images/tokenization.png"
+              alt="Tokenization"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="hero-card flex-1 min-h-0 bg-white border border-border rounded-3xl flex items-center justify-center p-6">
+            <img
+              src="/images/logoUcopym.png"
+              alt="COPYm Logo"
+              style={floatingLogoStyle}
+              className="h-16 w-16 md:h-24 md:w-24 object-contain"
+            />
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="col-span-12 md:col-span-8 flex flex-col gap-4 h-full min-h-0">
+          <div className="hero-card flex-[2] min-h-0 bg-white border border-border rounded-3xl overflow-hidden">
+            <img
+              src="/images/copym-pack.png"
+              alt="COPYm Pack"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="flex-1 min-h-0 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="hero-card bg-white border border-border rounded-3xl overflow-hidden">
+              <img
+                src="/images/credential-verify.png"
+                alt="Credential Verify"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="w-8 h-8 border-2 border-white rounded-full"></div>
-          </div>
-          <div className="text-right">
-            <div className="text-sm opacity-80">Your content here</div>
-          </div>
-        </div>
 
-        {/* Large main card - center */}
-        <div className="hero-card col-span-5 row-span-4 bg-white border border-border rounded-3xl p-6 relative overflow-hidden">
-          <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-            Featured
-          </div>
-          <div className="h-full flex items-center justify-center text-6xl font-bold text-muted-foreground">
-            Your Main Content
-          </div>
-          <div className="absolute bottom-4 right-4 flex space-x-1">
-            <div className="w-2 h-2 bg-muted rounded-full"></div>
-            <div className="w-2 h-2 bg-muted rounded-full"></div>
-            <div className="w-2 h-2 bg-muted rounded-full"></div>
-          </div>
-        </div>
-
-        {/* Top right card */}
-        <div className="hero-card col-span-3 row-span-2 bg-white border border-border rounded-3xl p-6 flex flex-col justify-between">
-          <div className="text-right">
-            <div className="text-sm text-muted-foreground">Your content</div>
-          </div>
-          <div className="flex justify-center">
-            <div className="w-16 h-16 bg-muted rounded-2xl"></div>
-          </div>
-        </div>
-
-        {/* Price card - left */}
-        <div className="hero-card col-span-3 row-span-2 bg-gradient-to-br from-blue-100 to-yellow-100 rounded-3xl p-6 relative">
-          <div className="absolute top-4 right-4">
-            <div className="w-8 h-8 border border-muted rounded-lg"></div>
-          </div>
-          <div className="mt-8">
-            <div className="bg-foreground text-background px-4 py-2 rounded-full text-lg font-bold inline-block">
-              $1850
+            <div className="hero-card bg-green-500 rounded-3xl flex flex-col items-center justify-center text-white p-6">
+              <div className="text-xl font-bold">COPYm</div>
             </div>
           </div>
         </div>
-
-        {/* Bottom left red card */}
-        <div className="hero-card col-span-4 row-span-1 bg-red-500 rounded-3xl p-6 text-white flex items-center justify-between">
-          <div>
-            <div className="text-xs opacity-80">SPEED AND PRECISION,</div>
-            <div className="text-xs opacity-80">REDEFINED.</div>
-            <div className="text-lg font-bold mt-2">Smart Shopping</div>
-          </div>
-          <div className="w-12 h-12 border border-white rounded-full flex items-center justify-center">
-            <div className="w-6 h-6 border border-white rounded-full"></div>
-          </div>
-        </div>
-
-        {/* Bottom center gradient */}
-        <div className="hero-card col-span-4 row-span-2 bg-gradient-to-br from-pink-400 to-orange-400 rounded-3xl p-6 text-white flex items-center justify-center">
-          <div className="text-center">
-            <div className="flex justify-center space-x-1 mb-4">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-            </div>
-            <div className="text-3xl font-bold">synto</div>
-          </div>
-        </div>
-
-        {/* Bottom right card */}
-        <div className="hero-card col-span-3 row-span-2 bg-white border border-border rounded-3xl p-6 relative">
-          <div className="absolute top-4 right-4">
-            <div className="text-xs text-muted-foreground">SPEED AND PRECISION,</div>
-            <div className="text-xs text-muted-foreground">REDEFINED.</div>
-          </div>
-          <div className="flex justify-center items-center h-full">
-            <div className="w-20 h-20 bg-gradient-to-br from-yellow-300 to-pink-300 rounded-2xl transform rotate-12"></div>
-          </div>
-          <div className="absolute bottom-4 right-4 text-xs text-muted-foreground">
-            SYNTO.COM
-          </div>
-        </div>
-
-        {/* Small top right */}
-        <div className="hero-card col-span-1 row-span-1 bg-muted rounded-2xl"></div>
       </div>
     </section>
   );

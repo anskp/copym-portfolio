@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { EnhancedButton } from "@/components/ui/enhanced-button";
 import { Shield, Zap, Globe } from "lucide-react";
+import ScrambledText from "@/components/ui/scramble";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -44,11 +45,17 @@ export function SplitContentSection() {
           {/* Text content */}
           <div ref={textRef} className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-5xl font-bold">
-                <span className="gradient-text">Revolutionary</span>
+              <ScrambledText
+                className="text-5xl lg:text-6xl font-bold leading-tight"
+                radius={120}
+                duration={1.2}
+                speed={0.5}
+                scrambleChars={".:"}
+              >
+                Revolutionary
                 <br />
                 Asset Tokenization
-              </h2>
+              </ScrambledText>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Transform traditional assets into digital tokens with complete regulatory compliance, 
                 instant liquidity, and global accessibility. Our platform bridges the gap between 
@@ -96,19 +103,22 @@ export function SplitContentSection() {
             </div>
           </div>
 
-          {/* Image placeholder */}
+          {/* 3D Model Embed */}
           <div ref={imageRef} className="relative">
-            <div className="glass-card min-h-[500px] flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <div className="w-24 h-24 bg-gradient-section rounded-full mx-auto animate-cyber-pulse"></div>
-                <p className="text-muted-foreground">Asset Visualization</p>
-                <p className="text-sm text-muted-foreground/70">Interactive 3D model or image will be placed here</p>
-              </div>
+            <div className="glass-card p-0 overflow-hidden rounded-2xl aspect-video">
+              <video
+                src="/video/animated-3d.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+              />
             </div>
-            
-            {/* Floating elements */}
+            {/* Floating decorative elements */}
             <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full animate-float"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary/20 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-secondary/20 rounded-full animate-float" style={{ animationDelay: '1.5s' }} />
           </div>
         </div>
       </div>
