@@ -112,28 +112,21 @@ export function HeroSection() {
         {/* LEFT COLUMN - 3 cards stacked */}
         <div className="col-span-12 md:col-span-4 flex flex-col gap-4 h-full min-h-0">
           {/* Each card gets 1/3 of the column height */}
-          <div className="hero-card flex-1 min-h-0 bg-white border border-border rounded-3xl overflow-hidden">
+          <div className="hero-card flex-[2] min-h-0 bg-white border border-border rounded-3xl overflow-hidden">
             <img
-              src="/images/token-marketplace.png"
+              src="/images/marketplace-phone.png"
               alt="Token Marketplace"
               className="w-full h-full object-cover"
             />
           </div>
 
-          <div className="hero-card flex-1 min-h-0 bg-white border border-border rounded-3xl overflow-hidden">
-            <img
-              src="/images/tokenization.png"
-              alt="Tokenization"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          {/* Merged the previous second card into the first by removing it */}
 
-          <div className="hero-card flex-1 min-h-0 bg-white border border-border rounded-3xl flex items-center justify-center p-6">
+          <div className="hero-card bg-white border border-border rounded-3xl overflow-hidden">
             <img
-              src="/assets/copym/png/Copym-03-1.png"
+              src="/images//hero-did-scanner-cropped.png"
               alt="COPYm Logo"
-              style={floatingLogoStyle}
-              className="h-16 w-16 md:h-24 md:w-24 object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
@@ -142,7 +135,7 @@ export function HeroSection() {
         <div className="col-span-12 md:col-span-8 flex flex-col gap-4 h-full min-h-0">
           <div className="hero-card flex-[2] min-h-0 bg-white border border-border rounded-3xl overflow-hidden">
             <img
-              src="/images/copym-pack.png"
+              src="/images/poster-board.png"
               alt="COPYm Pack"
               className="w-full h-full object-cover"
             />
@@ -151,7 +144,7 @@ export function HeroSection() {
           <div className="flex-1 min-h-0 grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="hero-card bg-white border border-border rounded-3xl overflow-hidden">
               <img
-                src="/images/credential-verify.png"
+                src="/images/hero-nft-green.jpg"
                 alt="Credential Verify"
                 className="w-full h-full object-cover"
               />
