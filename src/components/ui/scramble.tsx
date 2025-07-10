@@ -22,8 +22,12 @@ const ScrambledText = ({
   useEffect(() => {
     if (!rootRef.current) return;
 
+    // Split into words and chars so that characters stay grouped by word.
+    // This prevents browsers from inserting a line-break between individual
+    // characters (which was causing mid-word breaks like “Onboard\ning”).
     const split = SplitText.create(rootRef.current.querySelector("p"), {
-      type: "chars",
+      type: "words,chars",
+      wordsClass: "word",
       charsClass: "char",
     });
     charsRef.current = split.chars;

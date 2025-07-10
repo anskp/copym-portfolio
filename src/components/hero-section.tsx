@@ -87,10 +87,10 @@ export function HeroSection() {
       {/* Header */}
       <header className="flex items-center justify-between mb-6 flex-shrink-0 z-10 relative">
         <div className="flex items-center">
-          <img src="/images/logo.png" alt="COPYm" className="h-12 w-12 object-contain" />
+          <img src="/assets/copym/png/Copym-05-1.png" alt="COPYm" className="h-12 w-12 object-contain" />
         </div>
 
-        <h1 className="text-2xl font-bold text-foreground">COPYm</h1>
+        <h1 className="text-2xl font-bold text-foreground">COPYM</h1>
 
         <div className="flex items-center space-x-4 text-sm text-muted-foreground">
           <span>Tokenize Physical Assets in Minutes — Secure, Compliant, Global.</span>
@@ -130,7 +130,7 @@ export function HeroSection() {
 
           <div className="hero-card flex-1 min-h-0 bg-white border border-border rounded-3xl flex items-center justify-center p-6">
             <img
-              src="/images/logoUcopym.png"
+              src="/assets/copym/png/Copym-03-1.png"
               alt="COPYm Logo"
               style={floatingLogoStyle}
               className="h-16 w-16 md:h-24 md:w-24 object-contain"
@@ -158,7 +158,13 @@ export function HeroSection() {
             </div>
 
             <div className="hero-card bg-green-500 rounded-3xl flex flex-col items-center justify-center text-white p-6">
-              <div className="text-xl font-bold">COPYm</div>
+              <div className="text-xl font-bold">
+                <img
+                src="/assets/copym/png/Copym-02-1.png"
+                alt="COPYM"
+                className="h-10 w-auto sm:h-16 md:h-16 object-cover"
+                />
+                </div>
             </div>
           </div>
         </div>

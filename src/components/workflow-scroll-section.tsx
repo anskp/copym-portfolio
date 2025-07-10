@@ -132,7 +132,7 @@ export function WorkflowScrollSection({ steps }: { steps: Step[] }) {
                 className={`lg:grid lg:grid-cols-2 gap-16 items-center`}
               >
                 {/* Text block */}
-                <div className={`space-y-6 max-w-xl ${isTextRight ? "lg:col-start-2 lg:text-right ml-auto" : ""}`}>
+                <div className={`space-y-6 max-w-xl text-left ${isTextRight ? "lg:col-start-2 ml-auto" : ""}`}>
                   <div className={`flex items-center space-x-4 ${isTextRight ? "lg:justify-end" : ""}`}>
                     <div className="w-12 h-12 rounded-full bg-foreground flex items-center justify-center text-background font-bold text-lg">
                       {i + 1}
@@ -168,4 +168,4 @@ export function WorkflowScrollSection({ steps }: { steps: Step[] }) {
       })}
     </div>
   );
-} 
+}

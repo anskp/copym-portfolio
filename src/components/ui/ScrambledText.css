@@ -9,4 +9,10 @@
 .char {
   will-change: transform;
   display: inline-block;
+}
+
+/* Keep characters grouped inside words so line breaks occur only between words */
+.word {
+  display: inline-block;
+  white-space: nowrap; /* prevents mid-word wrapping */
 } 

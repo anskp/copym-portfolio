@@ -39,14 +39,15 @@ export function SplitContentSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-full bg-muted/30">
+    <section ref={sectionRef} className="section-full">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text content */}
           <div ref={textRef} className="space-y-8">
             <div className="space-y-4">
               <ScrambledText
-                className="text-5xl lg:text-6xl font-bold leading-tight"
+                className="text-5xl lg:text-6xl font-bold text-foreground leading-tight"
+                style={{ margin: 0 }}
                 radius={120}
                 duration={1.2}
                 speed={0.5}
@@ -54,7 +55,9 @@ export function SplitContentSection() {
               >
                 Revolutionary
                 <br />
-                Asset Tokenization
+                Asset 
+                <br />
+                Tokenization
               </ScrambledText>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Transform traditional assets into digital tokens with complete regulatory compliance, 

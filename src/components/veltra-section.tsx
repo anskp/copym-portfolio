@@ -67,13 +67,13 @@ export function VeltraSection() {
             </div>
             
             <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              COPYm RWA Tokenization
+              COPYM RWA Tokenization
               <br />
               Platform
             </h1>
             
             <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
-              COPYm turns real-world assets into blockchain tokens, unlocking liquidity with secure, compliant, and seamless user experience.
+              COPYM turns real-world assets into blockchain tokens, unlocking liquidity with secure, compliant, and seamless user experience.
             </p>
             
             <div className="flex space-x-4">
@@ -87,7 +87,7 @@ export function VeltraSection() {
 
           {/* Right side - COPYm Logo */}
           <div ref={visualRef} className="flex items-center justify-center h-[500px]">
-            <img src="/images/logo.png" alt="COPYm" className="h-80 w-80 lg:h-96 lg:w-96 object-contain" />
+            <img src="/assets/copym/png/Copym-05-1.png" alt="COPYm" className="h-80 w-auto lg:h-48 lg:w-auto object-contain" />
           </div>
         </div>
       </div>
