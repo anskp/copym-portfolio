@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { HeroSection } from "@/components/hero-section";
 import { VeltraSection } from "@/components/veltra-section";
 import { SplitContentSection } from "@/components/split-content-section";
+import {InvestorContentSection} from "@/components/investor-content-section";
 import { WorkflowScrollSection } from "@/components/workflow-scroll-section";
+import {InvestorWorkflow} from "@/components/investor-workflow";
 import { FooterSection } from "@/components/footer-section";
 import GallerySection from "@/components/gallery-section";
 
@@ -12,7 +14,7 @@ const Index = () => {
     document.documentElement.classList.remove('dark');
   }, []);
 
-  const workflowSteps = [
+  const issuerworkflowSteps = [
     {
       title: "Issuer Onboarding",
       description:
@@ -51,6 +53,39 @@ const Index = () => {
     },
   ];
 
+  const investorworkflowSteps = [
+    {
+      title: "Investor Onboarding",
+      description:
+        "Investors begin their journey by creating an account and submitting the required details to activate their investing profile on COPYm.",
+      visualSrc: "/images/investor-onboards-removebg-preview.png",
+    },
+    {
+      title: "Wallet-Linked DID",
+      description:
+        "A decentralized identity (DID) is automatically generated and linked to the investor’s wallet, enabling secure cross-chain interactions.",
+      visualSrc: "/images/wallets-removebg-preview.png",
+    },
+    {
+      title: "VC as Soul-Bound Token",
+      description:
+        "Verifiable Credentials are minted as non-transferable Soul-Bound Tokens (SBT), giving investors immutable proof of identity and compliance.",
+      visualSrc: "/images/SBT-investor.png",
+    },
+    {
+      title: "Tokenized Assets Marketplace",
+      description:
+        "Investors can browse a curated catalog of tokenized real-world assets, each backed by transparent data and legal assurances.",
+      visualSrc: "/images/tokens-marketplace-removebg-preview.png",
+    },
+    {
+      title: "Token Trading Marketplace",
+      description:
+        "Purchase, sell, and trade selected tokens effortlessly in COPYm’s regulated marketplace with instant settlement and clear pricing.",
+      visualSrc: "/images/token-marketplace-removebg-preview.png",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Hero Section */}
@@ -63,7 +98,11 @@ const Index = () => {
       <SplitContentSection />
       
       {/* Scroll Workflow Sections */}
-      <WorkflowScrollSection steps={workflowSteps} />
+      <WorkflowScrollSection steps={issuerworkflowSteps} />
+
+      <InvestorContentSection />
+
+      <InvestorWorkflow steps={investorworkflowSteps} />
 
       {/* Circular Gallery Section */}
       <GallerySection />
