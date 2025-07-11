@@ -5,7 +5,7 @@ import { SplitContentSection } from "@/components/split-content-section";
 import {InvestorContentSection} from "@/components/investor-content-section";
 import { WorkflowScrollSection } from "@/components/workflow-scroll-section";
 import {InvestorWorkflow} from "@/components/investor-workflow";
-import { FooterSection } from "@/components/footer-section";
+import { CtaSection } from "@/components/cta-section";
 import GallerySection from "@/components/gallery-section";
 
 const Index = () => {
@@ -106,9 +106,10 @@ const Index = () => {
 
       {/* Circular Gallery Section */}
       <GallerySection />
+
+      {/* CTA Section */}
+      <CtaSection />
       
-      {/* Footer */}
-      <FooterSection />
     </div>
   );
 };

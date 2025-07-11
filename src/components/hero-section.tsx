@@ -1,11 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { EnhancedButton } from "@/components/ui/enhanced-button";
-import { ChevronDown, ArrowRight } from "lucide-react";
-import { Laptop, ShoppingBag, Shirt, Package, Store, Sun, Moon } from "lucide-react";
-import { AnimatedDock } from "./animated-dock";
-import React from "react";
+// Removed navbar-related imports as the Navbar component now handles them.
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -84,28 +80,7 @@ export function HeroSection() {
       ref={sectionRef}
       className="h-screen overflow-hidden bg-background p-4 flex flex-col"
     >
-      {/* Header */}
-      <header className="flex items-center justify-between mb-6 flex-shrink-0 z-10 relative">
-        <div className="flex items-center">
-          <img src="/assets/copym/png/Copym-05-1.png" alt="COPYm" className="h-12 w-12 object-contain" />
-        </div>
-
-        <h1 className="text-2xl font-bold text-foreground">COPYM</h1>
-
-        <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-          <span>Tokenize Physical Assets in Minutes — Secure, Compliant, Global.</span>
-          <AnimatedDock
-            items={[
-              { link: "#", Icon: <Laptop className="h-4 w-4" /> },
-              { link: "#", Icon: <ShoppingBag className="h-4 w-4" /> },
-              { link: "#", Icon: <Shirt className="h-4 w-4" /> },
-              { link: "#", Icon: <Package className="h-4 w-4" /> },
-              { link: "#", Icon: <Store className="h-4 w-4" /> },
-              { link: "#", Icon: <ThemeToggle /> },
-            ]}
-          />
-        </div>
-      </header>
+      {/* Navbar moved out to separate component */}
 
       {/* Bento Grid Layout */}
       <div className="flex-1 grid grid-cols-12 gap-4 min-h-0 overflow-hidden">
