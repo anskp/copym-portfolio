@@ -53,28 +53,6 @@ export function HeroSection() {
     document.head.appendChild(style);
   }
 
-  // Theme toggle component
-  const ThemeToggle = () => {
-    const [dark, setDark] = React.useState(() =>
-      document.documentElement.classList.contains("dark")
-    );
-
-    const handleToggle = (e: React.MouseEvent) => {
-      e.preventDefault();
-      const html = document.documentElement;
-      if (html.classList.contains("dark")) {
-        html.classList.remove("dark");
-        setDark(false);
-      } else {
-        html.classList.add("dark");
-        setDark(true);
-      }
-    };
-
-    const Icon = dark ? Sun : Moon;
-    return <Icon className="h-4 w-4" onClick={handleToggle} />;
-  };
-
   return (
     <section
       ref={sectionRef}
