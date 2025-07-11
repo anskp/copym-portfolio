@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
             { link: "#", Icon: <Laptop className="h-4 w-4" /> },
             { link: "#", Icon: <ShoppingBag className="h-4 w-4" /> },
             { link: "#", Icon: <Shirt className="h-4 w-4" /> },
-            { link: "#", Icon: <Package className="h-4 w-4" /> },
+            { link: "/tokenization", Icon: <Package className="h-4 w-4" /> },
             { link: "/marketplace", Icon: <Store className="h-4 w-4" /> },
             { link: "#", Icon: <ThemeToggle /> },
           ]}

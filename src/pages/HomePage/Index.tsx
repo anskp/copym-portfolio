@@ -6,7 +6,9 @@ import {InvestorContentSection} from "@/components/investor-content-section";
 import { WorkflowScrollSection } from "@/components/workflow-scroll-section";
 import {InvestorWorkflow} from "@/components/investor-workflow";
 import { CtaSection } from "@/components/cta-section";
+import { BlogSection } from "@/components/blog-section";
 import GallerySection from "@/components/gallery-section";
+import { PlatformSection } from "@/components/platform-section";
 
 const Index = () => {
   // Set light mode by default
@@ -103,6 +105,12 @@ const Index = () => {
       <InvestorContentSection />
 
       <InvestorWorkflow steps={investorworkflowSteps} />
+
+      {/* Platform Section */}
+      <PlatformSection />
+
+      {/* Blog Section */}
+      <BlogSection />
 
       {/* Circular Gallery Section */}
       <GallerySection />
