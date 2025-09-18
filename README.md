@@ -1,9 +1,7 @@
-# Welcome to your Lovable project
 
-## Project info
+## Live Demo
 
-**URL**: https://lovable.dev/projects/b4c8c0f6-cd1b-411e-891d-888fababdf6b
-
+**URL**: https://copym-portfolio.vercel.app/
 ## How can I edit this code?
 
 There are several ways of editing your application.
